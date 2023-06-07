@@ -1,0 +1,42 @@
+{
+  "common": {
+    "menu": "Menu",
+    "app-name": "boilerplate",
+    "cancel": "Annuler",
+    "footer": "Copyright © 2023 Studerd.io Tous droits réservés."
+  },
+  "page": {
+    "signup": {
+      "link": {
+        "accroche": "Vous n'avez pas de compte?",
+        "clickable": "Cliquez ici pour vous en créer un"
+      },
+      "validation": {
+        "title-error": "Impossible de s'inscrire'!",
+        "desc-error": "Tous les doivent être remplis",
+        "uuid": "Le code fourni n'est pas au bon format"
+      },
+      "title": "Inscription à ",
+      "label": {
+        "username": "Identifiant",
+        "password": "Mot de passe",
+        "code": "Code d'authorisation"
+      }
+    },
+    "signin": {
+      "link": {
+        "accroche": "Vous possédez un compte?",
+        "clickable": "Cliquez ici pour vous connecter"
+      },
+      "validation": {
+        "title-error": "Impossible de se connecter!",
+        "desc-error": "Le champs identifiants et mot de passe doivent être remplis"
+      },
+      "title": "Connexion à ",
+      "label": {
+        "username": "Identifiant",
+        "password": "Mot de passe"
+      }
+    }
+  }
+}

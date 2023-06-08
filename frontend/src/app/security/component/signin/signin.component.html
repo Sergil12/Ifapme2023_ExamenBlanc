@@ -1,0 +1,18 @@
+
+<div class="login">
+  <h2 class="login-header">Log in</h2>
+ <form [formGroup]="formGroup" class="login-container">
+   <div>
+      <input formControlName="username" type="username" placeholder="Username" >
+   </div>
+    <br>
+   <div>
+      <input formControlName="password" type="password" placeholder="Password" >
+   </div>
+    <br>
+  <!--<input type="submit" value="Log in">-->
+    <div>
+      <button (click)="signin()">Signin</button>
+    </div>
+  </form>
+</div>

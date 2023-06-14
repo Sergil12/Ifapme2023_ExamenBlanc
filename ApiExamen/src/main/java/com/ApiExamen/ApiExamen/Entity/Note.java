@@ -1,14 +1,12 @@
 package com.ApiExamen.ApiExamen.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.UUID;
 @Entity
 @Data
@@ -22,9 +20,14 @@ public class Note {
 @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
 @Column(name = "note_id", updatable = false, nullable = false)
 
-    UUID note_id;
-    String cursus_name;
-    String note;
+    private UUID note_id;
+    private String cursus_name;
+    private String note;
+
+    @ManyToOne
+    @JoinColumn(name = "student_id", nullable = true)
+    @JsonIgnore
+    private Student student;
 
     public Note(String cursus_name, String note) {
         this.cursus_name = cursus_name;

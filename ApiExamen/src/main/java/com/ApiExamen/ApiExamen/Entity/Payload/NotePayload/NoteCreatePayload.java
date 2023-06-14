@@ -11,8 +11,4 @@ import lombok.NoArgsConstructor;
 public class NoteCreatePayload {
     String cursus_name;
     String note;
-
-    public Object getCurcus_name() {
-        return null;
-    }
 }

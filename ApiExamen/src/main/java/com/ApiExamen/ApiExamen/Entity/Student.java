@@ -6,11 +6,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 @Data
@@ -24,10 +22,15 @@ public class Student {
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     @Column(name = "student_id", updatable = false, nullable = false)
 
-    UUID student_id;
-    String firstname;
-    String lastname;
+    private UUID student_id;
+    private String firstname;
+    private String lastname;
 
+    @OneToMany(mappedBy = "student", cascade = CascadeType.REMOVE)
+    private List<Account> accounts;
+
+    @OneToMany(mappedBy = "student", cascade = CascadeType.REMOVE)
+    private List<Note> notes;
 
     public Student ( String firstname, String lastname) {
         this.firstname = firstname;

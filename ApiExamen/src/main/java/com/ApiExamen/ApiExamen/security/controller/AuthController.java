@@ -1,8 +1,16 @@
 package com.ApiExamen.ApiExamen.security.controller;
 
+import com.ApiExamen.ApiExamen.Entity.Account;
 import com.ApiExamen.ApiExamen.Entity.ApiResponse;
+import com.ApiExamen.ApiExamen.Entity.Payload.AccountPayload.AccountCreatePayload;
+import com.ApiExamen.ApiExamen.Entity.Payload.AccountPayload.AccountUpdatePayload;
+import com.ApiExamen.ApiExamen.Entity.Payload.StudentPayload.StudentCreatePayload;
+import com.ApiExamen.ApiExamen.Entity.Student;
+import com.ApiExamen.ApiExamen.Service.AccountService;
+import com.ApiExamen.ApiExamen.Service.StudentService;
 import com.ApiExamen.ApiExamen.security.entity.Credential;
 import com.ApiExamen.ApiExamen.security.entity.payload.RefreshTokenRequest;
+import com.ApiExamen.ApiExamen.security.entity.payload.SigninRequest;
 import com.ApiExamen.ApiExamen.security.entity.payload.SignupRequest;
 import com.ApiExamen.ApiExamen.security.repository.CredentialRepository;
 import com.ApiExamen.ApiExamen.security.service.CredentialService;
@@ -28,6 +36,10 @@ public class AuthController {
     PasswordEncoder encoder;
     @Autowired
     CredentialRepository credentialRepository;
+    @Autowired
+    StudentService studentService;
+    @Autowired
+    AccountService accountService;
 
     @GetMapping("/me")
     public ApiResponse get(final Principal principal) {
@@ -35,7 +47,7 @@ public class AuthController {
     }
 
     @PostMapping("/signin")
-    public ApiResponse signin(@RequestBody SignupRequest request) {
+    public ApiResponse signin(@RequestBody SigninRequest request) {
         ApiResponse result = request.isValid();
         if (result.isSuccess()) {
             Credential credential = credentialService.findCredentialByUsername(request.getUsername());
@@ -69,10 +81,13 @@ public class AuthController {
                 return new ApiResponse(false, null, "api.signup.email-exist");
             } else {
                 try {
+                    Student student = studentService.create(new StudentCreatePayload(request.getFirstname(), request.getLastname()));
+                    Account account = accountService.create(new AccountCreatePayload(request.getUsername(), student));
                     Credential credential = credentialService.saveCredential(new Credential.Builder()
                             .setUsername(request.getUsername())
                             .setPassword(encoder.encode(request.getPassword()))
                             .setActif(true)
+                            .setAccount(account)
                             .build());
                     return new ApiResponse(true, credential, null);
                 } catch (Exception e) {

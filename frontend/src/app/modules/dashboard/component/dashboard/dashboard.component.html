@@ -1,9 +1,7 @@
-<p>dashboard works!</p>
 <button (click)="logout()">logout</button>
 
 <button (click)="me()">get my info</button>
 
-
 <div *ngIf="credential">
-  {{ 'username : ' + credential.username}}
+  {{ "username : " + credential.username }}
 </div>

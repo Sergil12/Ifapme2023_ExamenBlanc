@@ -1,15 +1,50 @@
-
 <div class="signup">
   <h2 class="signup-header">Sign up</h2>
-  <form class="signup-container">
+  <form [formGroup]="formGroup" class="signup-container">
     <div>
-      <input type="username" placeholder="Username" >
+      <input
+        formControlName="username"
+        type="username"
+        placeholder="Username"
+      />
     </div>
-    <br>
+    <br />
     <div>
-      <input type="password" placeholder="Password" >
+      <input
+        formControlName="password"
+        type="password"
+        placeholder="Password"
+      />
     </div>
-    <br>
-    <input type="submit" value="signup">
+    <br />
+    <div>
+      <input formControlName="firstname" type="text" placeholder="Firstname" />
+    </div>
+    <br />
+    <div>
+      <input formControlName="lastname" type="text" placeholder="Lastname" />
+    </div>
+    <br />
+    <!--<input type="submit" value="signup" />-->
+    <ul>
+      <li>
+        <button
+          type="submit"
+          (click)="signup()"
+          style="background-color: lightblue"
+        >
+          Signup
+        </button>
+      </li>
+      <li>
+        <button
+          type="submit"
+          (click)="goToSignin()"
+          style="background-color: aqua"
+        >
+          <i class="fa-solid fa-arrow-left"></i> Back
+        </button>
+      </li>
+    </ul>
   </form>
 </div>

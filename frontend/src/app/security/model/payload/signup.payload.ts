@@ -1,6 +1,8 @@
-import {PayloadInterface} from '@shared/model';
+import { PayloadInterface } from '@shared/model';
 
 export interface SignupPayload extends PayloadInterface {
   username: string;
   password: string;
+  firstname: string;
+  lastname: string;
 }

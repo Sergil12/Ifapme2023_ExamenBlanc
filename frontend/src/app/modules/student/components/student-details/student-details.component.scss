@@ -1,0 +1,10 @@
+.form-line {
+  display: flex;
+  flex-direction: column;
+  input {
+    border: 1px solid white;
+    background: white;
+    padding: 5px;
+    color: #232323;
+  }
+}

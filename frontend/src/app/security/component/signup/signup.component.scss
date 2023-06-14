@@ -59,3 +59,20 @@
 .signup input[type="submit"]:focus {
   border-color: #05a;
 }
+
+button {
+  width: 150px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: #0ad;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border-color: #05a;
+}
+
+li {
+  display: inline;
+  text-decoration: none;
+  margin: 0px 2px;
+}

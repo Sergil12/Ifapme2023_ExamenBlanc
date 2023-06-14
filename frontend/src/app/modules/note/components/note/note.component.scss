@@ -1,0 +1,53 @@
+.background {
+  background-color: lightgrey;
+  padding: 50px;
+  height: 500px;
+}
+.table {
+  border-collapse: collapse;
+  caption-side: bottom;
+}
+
+th,
+td {
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.t1 {
+  text-decoration-color: darkred;
+  font-weight: bold;
+  text-align: center;
+}
+caption {
+  background-color: #0ad;
+  font-weight: bold;
+}
+.H1 {
+  text-align: center;
+  font-weight: bold;
+}
+button {
+  width: 150px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: #0ad;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.ajouter {
+  align-content: center;
+  justify-self: center;
+  text-align: center;
+}
+
+._left {
+  text-align: left;
+}
+
+._right {
+  margin-left: 10px;
+  text-align: right;
+}

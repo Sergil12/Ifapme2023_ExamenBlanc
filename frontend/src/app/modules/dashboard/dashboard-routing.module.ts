@@ -1,21 +1,22 @@
-import {RouterModule, Routes} from '@angular/router';
-import {NgModule} from '@angular/core';
-import {DashboardComponent} from './component';
+import { RouterModule, Routes } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { DashboardComponent } from './component';
 
 const routes: Routes = [
   {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full',
-  }, {
+  },
+  {
     path: 'home',
-    loadChildren: () => import('../salary/salary.module').then(m=>m.SalaryModule)
-  }
+    //loadChildren: () => import('../salary/salary.module').then(m=>m.SalaryModule)
+    component: DashboardComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class DashboardRoutingModule {
-}
+export class DashboardRoutingModule {}

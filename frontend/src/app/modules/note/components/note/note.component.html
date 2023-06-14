@@ -1,0 +1,44 @@
+<table align="center" class="">
+  <div class="background">
+    <h1 class="H1">Liste des Notes</h1>
+    <br /><br />
+    <ng-container *ngIf="list$ | async as list">
+      <table class="table">
+        <caption>
+          Infos Notes cliquez pour modifier
+        </caption>
+        <tr class="header">
+          <td class="t1">Cursus_name</td>
+          <td class="t1">Note</td>
+          <td class="t1">Action</td>
+        </tr>
+        <tr *ngFor="let item of list">
+          <td (click)="details(item.note_id)">{{ item.cursus_name }}</td>
+          <td (click)="details(item.note_id)">{{ item.note }}</td>
+          <td (click)="delete(item.note_id)">
+            <i class="fa-solid fa-trash-xmark" style="color: #da101b"></i>
+          </td>
+        </tr>
+      </table>
+    </ng-container>
+    <br /><br /><br />
+    <div class="ajouter"><button (click)="create()">Ajouter</button></div>
+    <br /><br /><br />
+    <div>
+      <span class="_left"
+        ><button (click)="logout()" style="background-color: red; width: 100px">
+          logout
+        </button></span
+      >
+      <span class="_right"
+        ><button (click)="me()" style="background-color: green; width: 100px">
+          get info
+        </button></span
+      >
+    </div>
+
+    <div *ngIf="credential">
+      {{ "username : " + credential.username }}
+    </div>
+  </div>
+</table>

@@ -17,6 +17,10 @@ class Student {
   student: any;
 }
 
+class student {
+  isEmpty: any;
+}
+
 @Component({
   selector: 'app-student-details',
   templateUrl: './student-details.component.html',
@@ -73,7 +77,7 @@ export class StudentDetailsComponent implements OnInit {
         // on cree
         this.studentService
           .create(this.formGroup.value)
-          .subscribe((result: Student) => {
+          .subscribe((result: student) => {
             if (result.isEmpty) {
               this.error = 'Erreur lors de la création.';
             }
@@ -82,7 +86,7 @@ export class StudentDetailsComponent implements OnInit {
       } else {
         const payload: StudentUpdatePayload = this.formGroup.value;
         payload.student_id = <string>this.student$.getValue().Student_id;
-        this.studentService.update(payload).subscribe((result: Student) => {
+        this.studentService.update(payload).subscribe((result: student) => {
           if (result.isEmpty) {
             this.error = 'Erreur lors de la modification.';
           }

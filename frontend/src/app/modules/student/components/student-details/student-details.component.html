@@ -1,15 +1,17 @@
-<ng-container *ngIf="note$ | async as note">
+<ng-container *ngIf="student$ | async as student">
   <div class="error" *ngIf="error.length > 0">{{ error }}</div>
   <form [formGroup]="formGroup" *ngIf="this.formGroup">
     <div class="form-line">
-      <label>Cursus_name</label>
+      <label>firstname</label>
       <input
         type="text"
-        formControlName="cursus_name"
+        formControlName="firstanme"
         placeholder="Entrez un nom"
       />
-      <label>Note</label>
-      <input type="text" formControlName="note" />
+      <label>lastname</label>
+      <input type="text"
+             formControlName="lastname"
+             placeholder="Entrez un nom"/>
     </div>
     <br />
     <button (click)="submit()">

@@ -17,6 +17,7 @@ import { ApiResponse } from '@shared/model';
 export class NoteComponent implements OnInit {
   list$ = new BehaviorSubject<Note[]>([]);
   credential?: Credential;
+  formMode: Boolean | undefined;
 
   constructor(
     public router: Router,
@@ -68,5 +69,9 @@ export class NoteComponent implements OnInit {
 
   logout(): void {
     this.auth.logout();
+  }
+
+  gotoStudent() {
+    this.router.navigate(['/student']);
   }
 }
